@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #EEEAE0;
+  --color-paper-dim: #E4DFD1;
+  --color-ink: #1E2F42;
+  --color-ink-soft: #3C5064;
+  --color-ink-faint: #6B7B8A;
+  --color-stamp: #A8371F;
+  --color-stamp-soft: #C4644E;
+  --color-kraft: #C9B896;
+  --color-kraft-dark: #A9976F;
+  --color-line: #D8D2C4;
+  --color-ledger-green: #4B6E4E;
+  --color-white: #FDFCFA;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Public Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* Torn paper edge used at the top of the intake tray */
+.torn-edge {
+  mask-image: linear-gradient(to bottom, black calc(100% - 8px), transparent calc(100% - 8px)),
+    repeating-linear-gradient(
+      110deg,
+      black 0px, black 6px, transparent 6px, transparent 12px
+    );
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  transform: rotate(-3deg);
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
